@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Proposal</title>
+    <style>
+        body {
+            background-color: #ffe6e6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+        }
+        
+        .card h1 {
+            color: #e60073;
+        }
+        
+        .card button {
+            background: #ff3366;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        .heart {
+            color: #ff3366;
+            font-size: 2em;
+            position: absolute;
+            animation: floatUp 10s infinite;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>will you be my valentine? </h1>
+        <button onclick="handleYes()">Yes</button>
+        <button onclick="handlePodi()">Podi</button>
+    </div>
+
+    <script>
+        function handleYes() {
+            document.querySelector('.card').innerHTML = "<h1>Yay!! love you babe ❤️</h1>";
+        }
+
+        function handlePodi() {
+            const card = document.querySelector('.card');
+            card.innerHTML = `<h1>will you be my valentine? </h1>
+                <button onclick="handleYesSolraVenna()">Yes Solra Venna</button>
+                <button onclick="handleMudiyathuPodi()">Mudiyathu Podi</button>`;
+        }
+
+        function handleYesSolraVenna() {
+            document.querySelector('.card').innerHTML = "<h1>Yay!! love you babe ❤️</h1>";
+        }
+
+        function handleMudiyathuPodi() {
+            const card = document.querySelector('.card');
+            card.innerHTML = `<h1>will you be my valentine? </h1>
+                <button onclick="handleOnlyYes()">Yess tha unnaku last option</button>`;
+        }
+
+        function handleOnlyYes() {
+            handleYes();
+        }
+
+        function createHearts() {
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                document.body.appendChild(heart);
+            }
+        }
+        createHearts();
+    </script>
+</body>
+
+</html>
